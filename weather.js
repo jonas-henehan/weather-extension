@@ -21,6 +21,19 @@ function populateForecast(jsonObj) {
     location.className = "current-weather__location";
     location.textContent = jsonObj['location'];
     document.getElementsByClassName('current-weather__header')[0].appendChild(location);
+
+    document.addEventListener("DOMContentLoaded", function(locationSVG) { 
+        if (location.textContent === 'Christchurch') {
+            locationSVG = document.getElementsByClassName('wellington', 'auckland');
+            locationSVG.classList.add('visibly-hidden');
+        } if (location.textContent === 'Wellington') {
+            locationChristchurch = document.getElementsByClassName('christchurch');
+            locationSVG.classList.add('visibly-hidden');
+        } else {
+            locationSVG = document.getElementsByClassName('wellington', 'christchurch');
+            locationSVG.classList.add('visibly-hidden');
+        }
+    });
     
     var time = document.createElement('p');
     time.className = "current-weather__time grid-item";
@@ -64,36 +77,37 @@ function populateForecast(jsonObj) {
 
 // animations
 
+
 anime ({
-    targets: '.blah1',
-    translateY:  -800,
-    rotateZ:  360,
-    scale: 3,
-    duration: 18000,
-    loop: true
+    targets: '.blah',
+    translateY: -900,
+    duration: 12000,
+    loop: false,
+    easing: 'easeInOutCubic',
+    delay: function(el, i, l) {
+        return i * 100;
+    },
+    endDelay: function(el, i, l) {
+        return (l - i) * 100;
+    }
+});
+
+
+anime ({
+    targets: '#shopiWeather path',
+    strokeDashoffset: [anime.strokeDashoffset, 665],
+    easing: 'easeInOutCubic',
+    duration: '6000',
+    loop: false,
+    direction: 'alternate'
 });
 
 anime ({
-    targets: '.blah2',
-    translateY:  -800,
-    rotateZ:  360,
-    scale: 2,
-    duration: 16000,
-    loop: true
-});
-
-anime ({
-    targets: '.blah3',
-    translateY:  -800,
-    rotateZ:  360,
-    duration: 20000,
-    loop: true
-});
-
-anime ({
-    targets: '.blah4',
-    translateY:  -800,
-    rotateZ:  360,
-    duration: 22000,
-    loop: true
+    targets: '#location path',
+    strokeDashoffset: [anime.strokeDashoffset, 450, 0],
+    easing: 'easeInOutCubic',
+    duration: '6000',
+    delay: '2000',
+    loop: false,
+    direction: 'normal'
 });

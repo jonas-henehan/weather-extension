@@ -1,0 +1,343 @@
+html {
+  height: 100vh;
+}
+body {
+  background: linear-gradient(
+    135deg,
+    rgba(155, 82, 215, 1) 0%,
+    rgba(20, 65, 191, 1) 100%
+  );
+  background-repeat: no-repeat;
+  min-height: 100%;
+  background-size: cover;
+  font-family: Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+  color: #008060;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 2em;
+}
+
+hr {
+    max-width: 50%;
+    color: #4A48C9;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.current-weather {
+  max-width: 768px;
+  height: fit-content;
+  position: relative;
+  margin: 100px auto;
+  padding: 30px;
+  display: grid;
+  grid-gap: 0px;
+  background-color: #fff;
+  z-index: 1000;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 22px 20px -13px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 22px 20px -13px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 22px 20px -13px rgba(0, 0, 0, 0.75);
+  grid-template-rows: 60px 250px;
+  grid-template-areas:
+    "header  header"
+    "weather weather";
+}
+
+.section .header {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  grid-template-rows: 1fr;
+  text-align: left;
+}
+
+section {
+  display: grid;
+  grid-area: weather;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 0px;
+  grid-template-areas: 
+    "icon        wind"
+    "temperature details";
+}
+/*===================================
+Title/Location
+====================================*/
+
+/*===================================
+Icons
+====================================*/
+.current-weather__icon {
+  grid-area: icon;
+  text-align: center;
+}
+.current-weather__icon img {
+  width: 120px;
+  height: auto;
+}
+
+/*===================================
+Temperature
+====================================*/
+.current-weather__wrapper-temperature {
+  grid-area: temperature;
+  text-align: center;
+  line-height: 3em;
+}
+
+.current-weather__temperature-feels-like {
+  font-size: 0.75em;
+}
+
+.cold {
+  color: #42c6dd;
+}
+
+.warm {
+  color: #ffa781;
+}
+.hot {
+  color: #c43256;
+}
+
+/*===================================
+Weather details
+====================================*/
+.current-weather__details {
+    grid-area: details;
+    list-style: none;
+    font-size: 0.8em;
+    padding-left: 40px;
+    margin: 0 auto;
+    text-align: center;
+}
+.current-weather__details li {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    padding: 10px;
+}
+/*===================================
+Wind
+====================================*/
+.current-weather__wind {
+    grid-area: wind;
+    font-size: 0.8em;
+    padding-left: 40px;
+    text-align: center;
+}
+.current-weather__wind div {
+    width: 50%;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.current-weather__wind-unit {
+  font-size: 0.75em;
+
+}
+
+.current-weather__wind-direction svg {
+    width: 60px;
+    padding-top: 20px;
+}
+
+.current-weather__wind-direction svg polygon {
+    stroke-dasharray: 975px;
+    stroke-dashoffset: 975px;
+}
+.current-weather__wind-speed {
+    padding-top: 40px;
+    padding-left: 40px;
+}
+/*===================================
+Pressure
+====================================*/
+
+
+/*===================================
+Humidity
+====================================*/
+
+
+/*===================================
+Copyright text
+====================================*/
+.icon-copyright__text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.icon-copyright__text a {
+  color: #fff;
+}
+
+/*===================================
+Circles
+====================================*/
+.circle {
+  background-color: #fff;
+  position: absolute;
+  border-radius: 50%;
+  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  overflow: hidden;
+}
+
+.circle:first-child {
+  width: 2000px;
+  height: 2000px;
+  top: -1000px;
+  opacity: 0.05;
+}
+
+.circle:nth-child(2) {
+    width: 1500px;
+    height: 1500px;
+    top: -750px;
+    opacity: 0.1;
+}
+
+.circle:nth-child(3) {
+    width: 1000px;
+    height: 1000px;
+    top: -500px;
+    opacity: 0.2;
+}
+/*===================================
+  Animation elements
+  ====================================*/
+.fancy-cool__svg svg {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#shopiWeather path {
+  stroke-dasharray: 665px;
+  stroke-dashoffset: 665px;
+}
+
+#Chirstchurch path {
+  stroke-dasharray: 450px;
+  stroke-dashoffset: 450px;
+}
+
+#Wellington path {
+  stroke-dasharray: 660px;
+  stroke-dashoffset: 660px;
+}
+
+#Auckland path {
+  stroke-dasharray: 435px;
+  stroke-dashoffset: 435px;
+}
+
+#Dunedin path {
+  stroke-dasharray: 390px;
+  stroke-dashoffset: 390px;
+}
+
+  .blah {
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .blah:nth-child(1) {
+    background-color: #FFA781;
+    border-radius: 50%;
+    top: 90%;
+    left: 8%;
+    height: 50px;
+    width: 50px;
+  }
+  
+  .blah:nth-child(2) {
+    background-color: #D6F8F3;
+    border-radius: 9%;
+    top: 145%;
+    left: 12%;
+    height: 70px;
+    width: 70px;
+  }
+  
+  .blah:nth-child(3){
+    background-color: #90E6B5;
+    border-radius: 3%;
+    top: 105%;
+    left: 72%;
+    height: 20px;
+    width: 20px;
+  }
+  .blah:nth-child(4) {
+    background-color: #C43256;
+    top: 125%;
+    left: 83%;
+    border-radius: 85%;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+  }
+  
+  .blah:nth-child(5) {
+    border: solid 1px #3FB484;
+    top: 105%;
+    left: 95%;
+    border-radius: 0%;
+    height: 20px;
+    width: 20px;
+    overflow: hidden;
+  }
+  
+  .blah:nth-child(6) {
+    background-color: #D6D4CE;
+    top: 115%;
+    left: 92%;
+    border-radius: 40%;
+    height: 90px;
+    width: 90px;
+    overflow: hidden;
+  }
+  
+  .blah:nth-child(7) {
+    background-color: #DA6322;
+    top: 105%;
+    left: 80%;
+    border-radius: 30%;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+  }
+  
+  .blah:nth-child(8) {
+    width: 80px;
+    top: 105%;
+    left: 5%;
+  }
+

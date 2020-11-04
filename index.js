@@ -1,13 +1,11 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    const header = document.querySelector('header');
-    var userLocation = 'Chirstchurch';
-    const body = document.querySelector('section');
+    var userLocation = localStorage.getItem('userLocation');
 
     var today = new Date();
-    var currentTime = today.getHours() + ":" + today.getMinutes();
+    var currentTime = today.getHours() + ":" + ('0'+today.getMinutes()).slice(-2);
 
-    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${userLocation},NZ&appid=4c11ed1244dbc1786547ab8260ecb9a8&units=metric`;
+    const apiURL = `https://api.openweathermap.org/data/2.5/weather?${userLocation}&appid=4c11ed1244dbc1786547ab8260ecb9a8&units=metric`;
 
     async function getWeatherData() {
         const response =  await fetch(apiURL)
@@ -16,8 +14,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         var location = document.createElement('h2');
         location.className = "current-weather__location";
         location.textContent = data.name;
-        document.getElementsByClassName('current-weather__header')[0].appendChild(location);        
+        document.getElementsByClassName('current-weather__header')[0].appendChild(location);
         
+        console.log(`Showing forecast for: ${location.textContent}`);
+
         try {
             document.getElementById(`${location.textContent}`).removeAttribute('class', 'hidden');
         } catch(err) {

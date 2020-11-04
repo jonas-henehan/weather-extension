@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up</title>
+    <script src="popup.js" type="text/javascript" charset="utf-8" defer="defer"></script>
+    <style>
+        h1 {
+            font-size: 2em;
+            background: linear-gradient(135deg,rgba(155, 82, 215, 1) 0%,rgba(20, 65, 191, 1) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        select {
+            padding: 5px 14px;
+            border-radius: 4px;
+        }
+
+        .location__select {
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 10px;
+            width: 80%;
+        }
+
+        .btn__container {
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+        .btn {
+            margin: 0px auto;
+            text-align: center;
+            padding: 5px 10px;
+            background: linear-gradient(135deg,rgba(155, 82, 215, 1) 0%,rgba(20, 65, 191, 1) 100%);
+            width: 80%;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+        .hidden {
+            display: none;
+            height: 0px;
+            width: 0px;
+        }
+
+        #accept {
+            text-decoration: underline;
+            color: linear-gradient(135deg,rgba(155, 82, 215, 1) 0%,rgba(20, 65, 191, 1) 100%);
+            cursor: pointer;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>ShopiWeather</h1>
+        </header>
+        <div class="location__select">
+            <select id="locationInput" name="location">
+                <option value="q=Auckland,NZ">Auckland</option>
+                <option value="q=Wellington,NZ">Wellington</option>
+                <option value="q=Christchurch,NZ">Christchurch</option>
+                <option value="q=Dunedin,NZ">Dunedin</option>
+                <option value="Other">Other</option>
+            </select>
+            <div class="hidden" id="geolocationPermission">
+                <span>Chrome will use your Geolocation to set get forecast.<br><a id="accept">Click here to accept</a></span>
+            </div>
+        </div>
+        <div class="btn__container">
+            <button id="save" class="btn">Save</button>
+            <div id="status"></div>
+        </div>
+    </div>
+</body>
+</html>
